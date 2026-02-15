@@ -14,8 +14,8 @@ interface avatarSettings {
 
 // Customize your avatar here
 const avatar: avatarSettings = {
-  vapi_agentid: "VAPI_AGENT_ID",
-  simli_faceid: "5514e24d-6086-46a3-ace4-6a7264e5cb7c",
+  vapi_agentid: "763ce219-2778-46f6-ac49-21fd241b4f56",
+  simli_faceid: "0c2b8b04-5274-41f1-a21c-d5c98322efa9",
 };
 
 const Demo: React.FC = () => {
@@ -37,14 +37,8 @@ const Demo: React.FC = () => {
       <Navbar />
 
       <div className="absolute top-[32px] right-[32px]">
-        <text
-          onClick={() => {
-            window.open("https://github.com/simliai/create-simli-app-vapi");
-          }}
-          className="font-bold cursor-pointer mb-8 text-xl leading-8"
-        >
-          <Image className="w-[20px] inline mr-2" src={GitHubLogo} alt="" />
-          create-simli-app (Vapi)
+        <text className="font-bold mb-8 text-xl leading-8">
+          RoleplayAI
         </text>
       </div>
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
@@ -60,29 +54,17 @@ const Demo: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-[350px] font-thin flex flex-col items-center ">
-        <span className="font-bold mb-[8px] leading-5 ">
-          {" "}
-          Create Simli App is a starter repo for creating visual avatars with
-          Simli{" "}
-        </span>
-        <ul className="list-decimal list-inside max-w-[350px] ml-[6px] mt-2">
-          <li className="mb-1">
-            Fill in your Vapi and Simli API keys in .env file.
-          </li>
-          <li className="mb-1">
-            Test out the interaction and have a talk with the Vapi-powered,
-            Simli-visualized avatar.
-          </li>
-          <li className="mb-1">
-            You can replace the avatar's face and agent with your own. Do this
-            by editing <code>app/page.tsx</code>.
-          </li>
-        </ul>
-        <span className=" mt-[16px]">
-          You can now deploy this app to Vercel, or incorporate it as part of
-          your existing project.
-        </span>
+      <div className="max-w-[500px] font-thin flex flex-col items-center ">
+        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          Interview Practice with Sarah
+        </h1>
+        <p className="text-center text-gray-300 mb-6">
+          Practice job interviews, salary negotiations, and difficult conversations with an AI interviewer
+        </p>
+        <div className="text-center text-sm text-gray-400">
+          <p className="mb-2">Click Sarah's face to start your practice session</p>
+          <p>She'll conduct a realistic interview and help you improve your performance</p>
+        </div>
       </div>
     </div>
   );
