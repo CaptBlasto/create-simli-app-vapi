@@ -132,7 +132,7 @@ const SimliVapi: React.FC<SimliVapiProps> = ({
           if (audioTrack) {
             // This is the audio output track for this participant
             console.log(`Audio track for ${participant.user_name}:`, audioTrack);
-            simliClientRef.current.listenToMediastreamTrack(audioTrack);
+            simliClient.listenToMediastreamTrack(audioTrack);
           }
         });
       } catch (error: any) {
