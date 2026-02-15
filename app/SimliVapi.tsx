@@ -126,15 +126,13 @@ const SimliVapi: React.FC<SimliVapiProps> = ({
       try {
         const dailyCall = vapi.getDailyCallObject();
         const participants = dailyCall?.participants() || {};
-        Object.values(participants || {}).forEach((participant) => {
-          const audioTrack = participant.tracks.audio.track;
+        
+        Object.values(participants).forEach((participant: any) => {
+          const audioTrack = participant?.tracks?.audio?.track;
           if (audioTrack) {
             // This is the audio output track for this participant
             console.log(`Audio track for ${participant.user_name}:`, audioTrack);
-          }
-          if (participant.user_name === "Vapi Speaker") {
-            console.log("Vapi Speaker detected");
-            simliClient.listenToMediastreamTrack(audioTrack as MediaStreamTrack);
+            simliClientRef.current.listenToMediastreamTrack(audioTrack);
           }
         });
       } catch (error: any) {
