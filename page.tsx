@@ -54,19 +54,26 @@ const Demo: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-[500px] font-thin flex flex-col items-center ">
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-          Interview Practice with Sarah
-        </h1>
-        <p className="text-center text-gray-300 mb-6">
-          Practice job interviews, salary negotiations, and difficult conversations with an AI interviewer
-        </p>
-        <div className="text-center text-sm text-gray-400">
-          <p className="mb-2">Click Sarah's face to start your practice session</p>
-          <p>She'll conduct a realistic interview and help you improve your performance</p>
-        </div>
-      </div>
-    </div>
+      <div className="max-w-[600px] flex flex-col items-center text-center mt-10">
+
+  <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_#00eaff]">
+    AI Interview Simulation
+  </h1>
+
+  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+    Experience a realistic, high-pressure interview conducted by a live AI interviewer.
+    Train your communication. Improve your clarity. Build confidence under pressure.
+  </p>
+
+  <div className="bg-white text-black px-8 py-4 rounded-xl shadow-lg hover:shadow-[0_0_30px_#9d00ff] hover:scale-105 transition-all duration-300 cursor-pointer font-semibold text-lg">
+    BEGIN SIMULATION
+  </div>
+
+  <p className="text-sm text-gray-500 mt-6">
+    Professional interview environment · Real-time AI conversation · Performance-driven practice
+  </p>
+
+</div>
   );
 };
 
