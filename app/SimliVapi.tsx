@@ -125,8 +125,8 @@ const SimliVapi: React.FC<SimliVapiProps> = ({
       muteVapiInternalAudio();
       try {
         const dailyCall = vapi.getDailyCallObject();
-        const participants = dailyCall?.participants();
-        Object.values(participants).forEach((participant) => {
+        const participants = dailyCall?.participants() || {};
+        Object.values(participants || {}).forEach((participant) => {
           const audioTrack = participant.tracks.audio.track;
           if (audioTrack) {
             // This is the audio output track for this participant
