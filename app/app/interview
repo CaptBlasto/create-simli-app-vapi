@@ -1,0 +1,17 @@
+"use client";
+
+import SimliVapi from "../SimliVapi";
+
+export default function InterviewPage() {
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      <SimliVapi
+        simli_faceid="4d9x23b5h6selx89uayhv"
+        agentId="763ce219-2778-46f6-ac49-21fd241b4f56"
+        onStart={() => console.log("Started")}
+        onClose={() => console.log("Closed")}
+        showDottedFace={false}
+      />
+    </div>
+  );
+}
