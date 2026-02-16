@@ -20,15 +20,18 @@ const avatar: avatarSettings = {
 
 const Demo: React.FC = () => {
   const [showDottedFace, setShowDottedFace] = useState(true);
+  const [isCallActive, setIsCallActive] = useState(false);
 
   const onStart = () => {
     console.log("Setting setshowDottedface to false...");
     setShowDottedFace(false);
+    setIsCallActive(true);
   };
 
   const onClose = () => {
-    console.log("Setting setshowDottedface to false...");
-    setShowDottedFace(false);
+    console.log("Call ended, resetting...");
+    setShowDottedFace(true);
+    setIsCallActive(false);
   };
 
   return (
@@ -41,6 +44,7 @@ const Demo: React.FC = () => {
           RoleplayAI
         </text>
       </div>
+
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
         <div>
           {showDottedFace && <DottedFace />}
@@ -54,26 +58,30 @@ const Demo: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-[600px] flex flex-col items-center text-center mt-10">
+      {!isCallActive && (
+        <div className="max-w-[600px] flex flex-col items-center text-center mt-10">
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_#00eaff]">
+            AI Interview Simulation
+          </h1>
 
-  <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_#00eaff]">
-    AI Interview Simulation
-  </h1>
+          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+            Experience a realistic, high-pressure interview conducted by a live AI interviewer.
+            Train your communication. Improve your clarity. Build confidence under pressure.
+          </p>
 
-  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-    Experience a realistic, high-pressure interview conducted by a live AI interviewer.
-    Train your communication. Improve your clarity. Build confidence under pressure.
-  </p>
+          <button 
+            onClick={onStart}
+            className="bg-white text-black px-8 py-4 rounded-xl shadow-lg hover:shadow-[0_0_30px_#9d00ff] hover:scale-105 transition-all duration-300 cursor-pointer font-semibold text-lg"
+          >
+            BEGIN SIMULATION
+          </button>
 
-  <div className="bg-white text-black px-8 py-4 rounded-xl shadow-lg hover:shadow-[0_0_30px_#9d00ff] hover:scale-105 transition-all duration-300 cursor-pointer font-semibold text-lg">
-    BEGIN SIMULATION
-  </div>
-
-  <p className="text-sm text-gray-500 mt-6">
-    Professional interview environment · Real-time AI conversation · Performance-driven practice
-  </p>
-
-</div>
+          <p className="text-sm text-gray-500 mt-6">
+            Professional interview environment · Real-time AI conversation · Performance-driven practice
+          </p>
+        </div>
+      )}
+    </div>
   );
 };
 
