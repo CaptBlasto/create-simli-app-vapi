@@ -115,14 +115,32 @@ const Demo: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-6 bg-black bg-opacity-40 backdrop-blur-md border border-purple-500 p-8 rounded-3xl w-full mt-8">
-            <SimliVapi
-              agentId={avatar.vapi_agentid}
-              simli_faceid={avatar.simli_faceid}
-              onStart={onStart}
-              onClose={onClose}
-              showDottedFace={showDottedFace}
-            />
+          <div className="flex flex-col items-center justify-center flex-1 w-full mt-8">
+            {/* Interview Container with better styling */}
+            <div 
+              className="w-full max-w-[800px] rounded-3xl overflow-hidden border border-purple-500 relative"
+              style={{ 
+                background: 'linear-gradient(135deg, rgba(147,51,234,0.2) 0%, rgba(236,72,153,0.2) 100%)',
+                boxShadow: '0 0 50px rgba(168,85,247,0.3)'
+              }}
+            >
+              <SimliVapi
+                agentId={avatar.vapi_agentid}
+                simli_faceid={avatar.simli_faceid}
+                onStart={onStart}
+                onClose={onClose}
+                showDottedFace={showDottedFace}
+              />
+            </div>
+            
+            {/* Loading message */}
+            {showDottedFace && (
+              <div className="mt-6 text-center">
+                <p className="text-purple-300 text-lg animate-pulse">
+                  Connecting to Sarah... Please allow microphone access
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>
