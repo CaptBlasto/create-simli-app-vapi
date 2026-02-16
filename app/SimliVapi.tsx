@@ -207,16 +207,23 @@ const SimliVapi: React.FC<SimliVapiProps> = ({
             onClick={handleStart}
             disabled={isLoading}
             className={cn(
-              "w-full h-[52px] mt-4 disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
-              "flex justify-center items-center"
-            )}
+  "w-full h-[60px] mt-6",
+  "bg-white text-black",
+  "rounded-xl",
+  "font-bold tracking-wide",
+  "transition-all duration-300",
+  "hover:shadow-[0_0_30px_#9d00ff]",
+  "hover:scale-[1.02]",
+  "disabled:bg-[#343434] disabled:text-white",
+  "flex justify-center items-center"
+)}
           >
             {isLoading ? (
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
-              <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
-              </span>
+              <span className="font-abc-repro-mono font-bold tracking-wider">
+  BEGIN SIMULATION
+</span>
             )}
           </button>
         ) : (
@@ -229,7 +236,7 @@ const SimliVapi: React.FC<SimliVapiProps> = ({
                 )}
               >
                 <span className="font-abc-repro-mono group-hover:text-black font-bold w-[164px] transition-all duration-300">
-                  Stop Interaction
+                  END SESSION
                 </span>
               </button>
             </div>
