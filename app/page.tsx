@@ -27,8 +27,8 @@ const Demo: React.FC = () => {
   };
 
   const onClose = () => {
-    console.log("Setting setshowDottedface to true...");
-    setShowDottedFace(true);
+    console.log("Setting setshowDottedface to false...");
+    setShowDottedFace(false);
   };
 
   return (
