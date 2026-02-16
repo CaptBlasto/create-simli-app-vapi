@@ -47,7 +47,18 @@ const Demo: React.FC = () => {
 
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
         <div>
-          {showDottedFace && <DottedFace />}
+          {showDottedFace && (
+            <div className="flex items-center justify-center mb-6">
+              <Image
+                src="/characters/sarah-compressed.jpg"
+                alt="Sarah - AI Interviewer"
+                width={400}
+                height={400}
+                className="rounded-2xl shadow-2xl"
+                priority
+              />
+            </div>
+          )}
           <SimliVapi
             agentId={avatar.vapi_agentid}
             simli_faceid={avatar.simli_faceid}
