@@ -18,7 +18,6 @@ const avatar: avatarSettings = {
 const Demo: React.FC = () => {
   const [showDottedFace, setShowDottedFace] = useState(true);
   const [isCallActive, setIsCallActive] = useState(false);
-  const [imageError, setImageError] = useState(false);
 
   const onStart = () => {
     console.log("Starting interview...");
@@ -39,10 +38,8 @@ const Demo: React.FC = () => {
         background: 'linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #000000 100%)'
       }}
     >
-      {/* Cyberpunk grid background effect */}
+      {/* Cyberpunk effects */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#7c3aed10_1px,transparent_1px),linear-gradient(to_bottom,#7c3aed10_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
-      
-      {/* Glowing orbs */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -51,38 +48,28 @@ const Demo: React.FC = () => {
         <Navbar />
 
         <div className="absolute top-[32px] right-[32px]">
-          <span className="font-bold text-xl text-purple-400">
-            RoleplayAI
-          </span>
+          <span className="font-bold text-xl text-purple-400">RoleplayAI</span>
         </div>
 
-        {/* Main Content */}
         {!isCallActive ? (
+          // LANDING PAGE
           <div className="flex flex-col items-center justify-center flex-1 w-full max-w-[900px] gap-10 mt-20">
-            
-            {/* Sarah's Image */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
               <div 
                 className="relative w-[320px] h-[320px] rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm border border-purple-500 flex items-center justify-center"
                 style={{ background: 'linear-gradient(135deg, rgba(147,51,234,0.3) 0%, rgba(236,72,153,0.3) 100%)' }}
               >
-                {!imageError ? (
-                  <Image
-                    src="/characters/sarah-compressed.jpg"
-                    alt="Sarah - AI Interviewer"
-                    fill
-                    className="object-cover"
-                    priority
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
-                  <div className="text-9xl font-black text-white opacity-40">S</div>
-                )}
+                <Image
+                  src="/characters/sarah-compressed.jpg"
+                  alt="Sarah - AI Interviewer"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
 
-            {/* Landing Content */}
             <div className="flex flex-col items-center text-center gap-8 px-4">
               <h1 
                 className="text-6xl font-black leading-tight"
@@ -115,10 +102,10 @@ const Demo: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center flex-1 w-full mt-8">
-            {/* Interview Container with better styling */}
+          // INTERVIEW ACTIVE
+          <div className="flex flex-col items-center w-full max-w-[900px] mt-20">
             <div 
-              className="w-full max-w-[800px] rounded-3xl overflow-hidden border border-purple-500 relative"
+              className="w-full rounded-3xl overflow-hidden border border-purple-500"
               style={{ 
                 background: 'linear-gradient(135deg, rgba(147,51,234,0.2) 0%, rgba(236,72,153,0.2) 100%)',
                 boxShadow: '0 0 50px rgba(168,85,247,0.3)'
@@ -132,15 +119,6 @@ const Demo: React.FC = () => {
                 showDottedFace={showDottedFace}
               />
             </div>
-            
-            {/* Loading message */}
-            {showDottedFace && (
-              <div className="mt-6 text-center">
-                <p className="text-purple-300 text-lg animate-pulse">
-                  Connecting to Sarah... Please allow microphone access
-                </p>
-              </div>
-            )}
           </div>
         )}
       </div>
